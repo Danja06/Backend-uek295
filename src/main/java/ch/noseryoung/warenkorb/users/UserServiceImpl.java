@@ -1,12 +1,11 @@
 package ch.noseryoung.warenkorb.users;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.objenesis.SpringObjenesis;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -24,7 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Users findById(int id) {
+    public Users findById(UUID id) {
         Optional<Users> optionalUsers=userRepository.findAllById(id);
 
         if(optionalUsers.isPresent()){

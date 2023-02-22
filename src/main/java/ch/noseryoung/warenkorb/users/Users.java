@@ -1,19 +1,20 @@
 package ch.noseryoung.warenkorb.users;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.UUID;
+
+@Entity
+@Table
 public class Users {
     @Id
     @GeneratedValue
-    int id;
+    public UUID id;
     @Column(name = "firstname")
-    String firstname;
+    public String firstname;
     @Column(name = "lastname")
-    String lastname;
-    public int getId() {
+    public String lastname;
+    public UUID getId() {
         return id;
     }
 

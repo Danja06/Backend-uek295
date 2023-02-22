@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/accounts")
@@ -16,7 +17,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Users> findById(@PathVariable("id") int id){
+    public ResponseEntity<Users> findById(@PathVariable("id") UUID id){
         return ResponseEntity.ok(userService.findById(id));
     }
 
