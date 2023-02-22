@@ -5,9 +5,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository <Users, Integer> { //JpaRepository -> Repository for simplified CRUD Methods
+public interface UserRepository extends JpaRepository <User, UUID> { //JpaRepository -> Repository for simplified CRUD Methods
 
-    Optional<Users>findAllByFirstname(String firstname);
-    Optional<Users>findAllByLastname(String lastname);
-    Optional<Users>findAllById(UUID id);
+    Optional<User>findAllByFirstname(String firstname);
+    Optional<User>findAllByLastname(String lastname);
+    Optional<User>findAllById(UUID id);
 }

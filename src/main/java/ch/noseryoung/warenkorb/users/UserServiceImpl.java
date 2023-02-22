@@ -18,13 +18,17 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public Users create(Users users) {
-        return userRepository.save(users);
+    public User create(User user) {
+        return userRepository.save(user);
+    }
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     @Override
-    public Users findById(UUID id) {
-        Optional<Users> optionalUsers=userRepository.findAllById(id);
+    public User findById(UUID id) {
+        Optional<User> optionalUsers=userRepository.findAllById(id);
 
         if(optionalUsers.isPresent()){
             return optionalUsers.get();
@@ -33,8 +37,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Users findByFirstname(String firstname) {
-        Optional<Users> optionalUsers=userRepository.findAllByFirstname(firstname);
+    public User findByFirstname(String firstname) {
+        Optional<User> optionalUsers=userRepository.findAllByFirstname(firstname);
 
         if (optionalUsers.isPresent()){
             return optionalUsers.get();
@@ -43,17 +47,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Users findByLastname(String lastname) {
-        Optional<Users> optionalUsers=userRepository.findAllByLastname(lastname);
+    public User findByLastname(String lastname) {
+        Optional<User> optionalUsers=userRepository.findAllByLastname(lastname);
 
         if (optionalUsers.isPresent()){
             return optionalUsers.get();
         }
         throw new NoSuchElementException("user with lastname "+lastname+ "does not exist");
-    }
-
-    @Override
-    public List<Users> findAll() {
-        return userRepository.findAll();
     }
 }

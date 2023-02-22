@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/users")
 public class UserController {
     private UserService userService;
     @Autowired
@@ -17,26 +17,26 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Users> findById(@PathVariable("id") UUID id){
+    public ResponseEntity<User> findById(@PathVariable("id") UUID id){
         return ResponseEntity.ok(userService.findById(id));
     }
 
-    @GetMapping("/firstname")
-    public ResponseEntity<Users> findByFirstname(@PathVariable("firstname")String firstname){
+    @GetMapping("/firstname/{firstname}")
+    public ResponseEntity<User> findByFirstname(@PathVariable("firstname") String firstname){
         return ResponseEntity.ok(userService.findByFirstname(firstname));
     }
-    @GetMapping("/lastname")
-    public ResponseEntity<Users> findByLastname(@PathVariable("lastname")String lastname){
+    @GetMapping("/lastname/{lastname}")
+    public ResponseEntity<User> findByLastname(@PathVariable("lastname") String lastname){
         return ResponseEntity.ok(userService.findByLastname(lastname));
     }
 
-    @GetMapping("/account")
-    public List<Users> findAll(){
+    @GetMapping
+    public List<User> findAll(){
         return ResponseEntity.ok(userService.findAll()).getBody();
     }
-    @PostMapping({"","/"})
-    public ResponseEntity<Users> create(@RequestBody Users users){
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.create(users));
+    @PostMapping
+    public ResponseEntity<User> create(@RequestBody User user){
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.create(user));
     }
 
 }

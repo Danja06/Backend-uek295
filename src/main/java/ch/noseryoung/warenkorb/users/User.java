@@ -1,19 +1,18 @@
 package ch.noseryoung.warenkorb.users;
-
 import jakarta.persistence.*;
-
 import java.util.UUID;
 
 @Entity
-@Table
-public class Users {
+@Table(name = "users")
+public class User {
     @Id
-    @GeneratedValue
-    public UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
     @Column(name = "firstname")
-    public String firstname;
+    private String firstname;
     @Column(name = "lastname")
-    public String lastname;
+    private String lastname;
+
     public UUID getId() {
         return id;
     }
