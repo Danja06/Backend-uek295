@@ -21,11 +21,11 @@ public class UserController {
         return ResponseEntity.ok(userService.findById(id));
     }
 
-    @GetMapping("/{firstname}")
+    @GetMapping("/firstname/{firstname}")
     public ResponseEntity<User> findByFirstname(@PathVariable("firstname") String firstname){
         return ResponseEntity.ok(userService.findByFirstname(firstname));
     }
-    @GetMapping("/{lastname}")
+    @GetMapping("/lastname/{lastname}")
     public ResponseEntity<User> findByLastname(@PathVariable("lastname") String lastname){
         return ResponseEntity.ok(userService.findByLastname(lastname));
     }

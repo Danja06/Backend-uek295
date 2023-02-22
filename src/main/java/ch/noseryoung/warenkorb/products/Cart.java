@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "carts")
+@Table(name = "cart")
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,13 +15,27 @@ public class Cart {
     @Column(name = "brand")
     private String brand;           //Name of the Brand.
 
-     public UUID getId(){
+    public UUID getId() {
         return id;
     }
-    public String getProduct(){
-         return product;
+
+    public void setId(UUID id) {
+        this.id = id;
     }
-    public String getBrand(){
-         return brand;
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 }

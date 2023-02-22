@@ -17,10 +17,23 @@ public class User {
         return id;
     }
 
-    public String getFirstname(){
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getFirstname() {
         return firstname;
     }
-    public String getLastname(){
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
         return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }
