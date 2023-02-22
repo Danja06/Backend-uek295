@@ -1,7 +1,5 @@
 package ch.noseryoung.warenkorb.users;
 
-import ch.noseryoung.warenkorb.products.Products;
-
 import java.util.List;
 
 public interface UserService {

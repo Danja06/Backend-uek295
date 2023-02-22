@@ -1,4 +1,4 @@
 package ch.noseryoung.warenkorb.products;
 
-public interface ProductService {
+public interface CartRepository {
 }
