@@ -3,6 +3,9 @@ package ch.noseryoung.warenkorb.cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -19,12 +22,16 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Cart findByQuantity(int quantity) {
-        return null;
+    public List<Cart> findAllProducts(String product) {
+        return cartRepository.findAllByProduct(product);
     }
 
     @Override
     public Cart findById(UUID id) {
-        return null;
+        Optional<Cart> optionalCart=cartRepository.findById(id);
+        if (optionalCart.isPresent()){
+            return optionalCart.get();
+        }
+        throw new NoSuchElementException("The Shopping cart id "+id+" does not exist");
     }
 }

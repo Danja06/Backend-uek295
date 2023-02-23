@@ -23,10 +23,7 @@ public class CartController {
     public ResponseEntity<Cart> findById(@PathVariable ("id") UUID id){
         return ResponseEntity.ok(cartService.findById(id));
     }
-    @GetMapping("/quantity/{quantity}")
-    public ResponseEntity<Cart> findByQuantity(@PathVariable ("quantity") int quantity){
-        return ResponseEntity.ok(cartService.findByQuantity(quantity));
-    }
+
     @PostMapping
     public ResponseEntity<Cart> create(@RequestBody Cart cart){
         return ResponseEntity.status(HttpStatus.CREATED).body(cartService.create(cart));
