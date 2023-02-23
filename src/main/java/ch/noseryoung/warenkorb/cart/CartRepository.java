@@ -1,4 +1,11 @@
 package ch.noseryoung.warenkorb.cart;
 
-public interface CartRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.Optional;
+import java.util.UUID;
+
+@Repository
+public interface CartRepository extends JpaRepository<Cart, UUID> {
+    Optional<Cart> findAllById(UUID id);
 }
