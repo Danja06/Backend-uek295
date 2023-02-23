@@ -20,18 +20,28 @@ public class CartServiceImpl implements CartService {
     public Cart create(Cart cart) {
         return cartRepository.save(cart);
     }
-
     @Override
-    public List<Cart> findAllProducts(String product) {
-        return cartRepository.findAllByProduct(product);
-    }
-
-    @Override
-    public Cart findById(UUID id) {
-        Optional<Cart> optionalCart=cartRepository.findById(id);
+    public Cart findByProduct(String product) {
+        Optional<Cart> optionalCart=cartRepository.findAllByProduct(product);
         if (optionalCart.isPresent()){
             return optionalCart.get();
         }
-        throw new NoSuchElementException("The Shopping cart Id "+id+" does not exist");
+        throw new NoSuchElementException("product "+product+" was not found in the Shopping cart");
     }
+
+    @Override
+    public List<Cart> findAll() {
+        return cartRepository.findAll();
+    }
+
+    @Override
+    public Cart findById(UUID cartId) {
+        Optional<Cart> optionalCart=cartRepository.findById(cartId);
+        if (optionalCart.isPresent()){
+            return optionalCart.get();
+        }
+        throw new NoSuchElementException("The Shopping cart Id "+cartId+" does not exist");
+    }
+
+
 }
