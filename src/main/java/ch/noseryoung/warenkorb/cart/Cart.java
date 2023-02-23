@@ -1,4 +1,4 @@
-package ch.noseryoung.warenkorb.products;
+package ch.noseryoung.warenkorb.cart;
 
 import jakarta.persistence.*;
 
