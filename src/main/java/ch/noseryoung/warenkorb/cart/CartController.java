@@ -1,5 +1,6 @@
 package ch.noseryoung.warenkorb.cart;
 
+import ch.noseryoung.warenkorb.products.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class CartController {
         return ResponseEntity.ok(cartService.findById(cartId));
     }
     @GetMapping("/product/{product}")
-    public ResponseEntity<Cart> findByProduct(@PathVariable ("product")String product){
+    public ResponseEntity<Cart> findByProduct(@PathVariable ("product")List<Product> product){
         return ResponseEntity.ok(cartService.findByProduct(product));
     }
     @GetMapping
